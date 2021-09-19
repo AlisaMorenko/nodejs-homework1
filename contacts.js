@@ -8,9 +8,6 @@ async function listContacts() {
   const contacts = JSON.parse(data);
   return contacts;
 }
-//var2
-// const contacts = require('./db/contacts.json')
-// const listContacts = async () => contacts;
 
 async function getContactById(contactId) {
   const contacts = await listContacts();
@@ -18,7 +15,6 @@ async function getContactById(contactId) {
   if (idx === -1) {
     return null;
   }
-  // console.log(contacts[idx]);
   return contacts[idx];
 }
 
@@ -30,7 +26,6 @@ async function removeContact(contactId) {
   }
   contacts.splice(idx, 1);
   await fs.writeFile(contactsPath, JSON.stringify(contacts));
-  // console.log(`Contact with id=${idx} removed successfully`);
   return contacts;
 }
 

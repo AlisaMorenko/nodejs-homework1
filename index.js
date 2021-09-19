@@ -57,6 +57,7 @@ const invokeAction = async ({ action, id, name, email, phone }) => {
 
 invokeAction(argv);
 
+// previous version
 // const id = 12;
 
 // const newData = {
@@ -69,19 +70,19 @@ invokeAction(argv);
 //   try {
 // const contacts = await listContacts();
 // console.log(contacts);
-//////////////////////////////////////
+
 // const contactById = await getContactById(id);
 // if (!contactById) {
 //   throw new Error("Contact not found");
 // }
 // console.log(contactById);
-////////////////
+
 // const removeById = await removeContact(id);
 // if (!removeById) {
 //   throw new Error("Contact not found");
 // }
 // console.log(`Contact with id ${id} was deleted`);
-/////////////////
+
 //     const newContact = await addContact(newData);
 //     console.log(newContact);
 //   } catch (err) {
