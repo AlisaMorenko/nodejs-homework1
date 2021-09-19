@@ -14,25 +14,27 @@ async function listContacts() {
 
 async function getContactById(contactId) {
   const contacts = await listContacts();
-  const idx = contacts.findIndex((contact) => contact.id === contactId);
+  const idx = contacts.findIndex((contact) => contact.id === Number(contactId));
   if (idx === -1) {
     return null;
   }
+  // console.log(contacts[idx]);
   return contacts[idx];
 }
 
 async function removeContact(contactId) {
   const contacts = await listContacts();
-  const idx = contacts.findIndex((contact) => contact.id === contactId);
+  const idx = contacts.findIndex((contact) => contact.id === Number(contactId));
   if (idx === -1) {
     return null;
   }
   contacts.splice(idx, 1);
   await fs.writeFile(contactsPath, JSON.stringify(contacts));
+  // console.log(`Contact with id=${idx} removed successfully`);
   return contacts;
 }
-//пока без ид, с ним потом разберемся
-async function addContact({ name, email, phone }) {
+
+async function addContact(name, email, phone) {
   const contacts = await listContacts();
   const id = contacts[contacts.length - 1].id + 1;
   const newContact = { id, name, email, phone };
